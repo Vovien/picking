@@ -1,0 +1,9 @@
+ext {
+    //手持设备
+    pdaVersionCode = 1
+    pdaVersionName = "1.0.0"
+    //屏显设备
+    screenVersionCode = 1
+    screenVersionName = "1.0.0"
+
+}

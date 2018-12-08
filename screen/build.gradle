@@ -1,0 +1,222 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'realm-android'
+
+android {
+    def properties = getConfigProperties()
+    // 打包配置信息的地址
+    signingConfigs {
+        test {
+            storeFile file(properties['STORE_FILE'])
+            keyAlias properties['KEY_ALIAS']
+            keyPassword properties['KEY_PASSWORD']
+            storePassword properties['STORE_PASSWORD']
+        }
+    }
+
+    compileSdkVersion rootProject.ext.compile_sdk_version
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId 'com.holderzone.android.holderpick.screen'
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode rootProject.pdaVersionCode
+        versionName rootProject.pdaVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+        }
+        multiDexEnabled true
+
+        flavorDimensions "versionCode"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            // 为版本名添加后缀
+            versionNameSuffix "-debug"
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.test
+        }
+
+    }
+    productFlavors {
+        dev {
+            versionNameSuffix = "screen-开发版"
+            manifestPlaceholders = [CHANNEL_VALUE: "common", app_icon: "@mipmap/ic_launcher"]
+            resValue "string", "app_name", "屏显端开发版"
+            buildConfigField 'String', 'HOST', "${properties['HOST_DEV']}"
+        }
+
+        uat {
+            versionNameSuffix = "screen-测试版"
+            manifestPlaceholders = [CHANNEL_VALUE: "common", app_icon: "@mipmap/ic_launcher"]
+            resValue "string", "app_name", "screen测试版  "
+            buildConfigField 'String', 'HOST', "${properties['HOST_UAT']}"
+        }
+
+        pro {
+            versionNameSuffix = "screen-正式版"
+            manifestPlaceholders = [CHANNEL_VALUE: "common", app_icon: "@mipmap/ic_launcher"]
+            resValue "string", "app_name", "拣货宝-屏显端"
+            buildConfigField 'String', 'HOST', "${properties['HOST_PROD']}"
+        }
+    }
+
+    // 数据库的版本及Dao相关设置
+    greendao {
+        // 数据库schema版本，也可以理解为数据库版本号
+        schemaVersion 5
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def date = new Date()
+            def formattedDate = date.format('yyyyMMdd')
+            outputFileName = "  screen_${variant.name}_${variant.mergedFlavor.versionName}_${formattedDate}.apk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        preDexLibraries false
+        javaMaxHeapSize "4g"
+    }
+}
+
+realm {
+    syncEnabled = true
+}
+
+def getConfigProperties() {
+    def prop = new Properties()
+    def is = project.rootProject.file('config.properties').newDataInputStream()
+    prop.load(is)
+    return prop
+}
+
+dependencies {
+    //file
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //android support libraries
+    implementation "com.android.support:appcompat-v7:${support_library_version}"
+    implementation "com.android.support:recyclerview-v7:${support_library_version}"
+    implementation "com.android.support:cardview-v7:${support_library_version}"
+    implementation "com.android.support:design:${support_library_version}"
+
+    //layout
+    implementation "com.android.support.constraint:constraint-layout:${constraint_layout_version}"
+    implementation "com.google.android:flexbox:$flexbox_version"
+
+    // image
+    implementation "com.github.bumptech.glide:glide:${glide_version}"
+
+    //network request
+    implementation(["com.squareup.retrofit2:retrofit:${retrofit_version}",
+                    "com.squareup.retrofit2:converter-gson:${converter_gson_version}",
+                    "com.squareup.retrofit2:adapter-rxjava2:${adapter_rxjava2_version}",
+                    "com.squareup.okhttp3:okhttp:${okhttp_version}",
+                    "com.squareup.okhttp3:logging-interceptor:${okhttp_version}"])
+
+    //rx
+    implementation "io.reactivex.rxjava2:rxjava:${rx_java_version}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
+    implementation "com.jakewharton.rxrelay2:rxrelay:${rx_relay_version}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${rx_binding_version}"
+    api "com.trello.rxlifecycle2:rxlifecycle:${rx_lifecycle_version}"
+    api "com.trello.rxlifecycle2:rxlifecycle-components:${rx_lifecycle_version}"
+
+    //cache
+    implementation("com.github.VictorAlbertos.RxCache:runtime:${rx_cache_version}") {
+        exclude group: 'com.google.dagger'
+        exclude group: 'io.reactivex.rxjava2'
+    }
+
+    // network parse
+    implementation "com.google.code.gson:gson:${google_gson_version}"
+
+    // dependency and injection
+    implementation "com.jakewharton:butterknife:${butter_knife_version}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butter_knife_version}"
+    implementation "com.google.dagger:dagger:$dagger2_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger2_version"
+
+    //widget
+    implementation "com.joooonho:selectableroundedimageview:${selectable_rounded_imageview_version}"
+    implementation "com.zyao89:zloading:${zloading_version}"
+    implementation "se.emilsjolander:stickylistheaders:${sticky_list_headers_version}"
+
+    // routing
+    implementation("com.alibaba:arouter-api:$arouter_api_vesrion") {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+
+    // qr
+    implementation "com.google.zxing:core:${zxing_version}"
+
+    //greenDao框架
+    implementation "org.greenrobot:greendao:${greendao_version}"
+
+    // multi_dex 65535
+    implementation "com.android.support:multidex:${multidex_version}"
+
+    //permissions
+    implementation "com.tbruyelle.rxpermissions2:rxpermissions:${rxpermissions_version}"
+
+    // database
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+
+    // util
+    implementation "com.wuxiaolong.pullloadmorerecyclerview:library:${pull_load_more_recyclerview_version}"
+    implementation "com.blankj:utilcode:${utilcode_version}"
+
+    // 日期控件
+    implementation 'com.brucetoo.pickview:library:1.2.3'
+
+    // badge
+    implementation "q.rorbin:badgeview:$badge_view_version"
+
+    // logger
+    implementation "com.orhanobut:logger:$logger_version"
+
+    // debug
+    implementation "com.facebook.stetho:stetho:$stetho_version"
+    implementation "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+
+    // debug database
+    debugImplementation "com.amitshekhar.android:debug-db:${debug_db_version}"
+
+    // multi state view switch
+    implementation "com.github.Kennyc1012:MultiStateView:${multi_state_viewVersion}"
+
+    //adapter
+    implementation "com.github.donkingliang:GroupedRecyclerViewAdapter:${grouped_recyclerview_adapter_version}"
+
+    //version check
+    implementation "com.allenliu.versionchecklib:library:${versionchecklib_version}"
+
+    //handler
+    implementation "com.badoo.mobile:android-weak-handler:${androidweakhandler_version}"
+
+    //mq_tt
+    implementation "org.eclipse.paho:org.eclipse.paho.client.mqttv3:${mqttv3_version}"
+    implementation "org.eclipse.paho:org.eclipse.paho.android.service:${mqttv3_service_version}"
+    implementation 'commons-codec:commons-codec:1.10'
+
+}

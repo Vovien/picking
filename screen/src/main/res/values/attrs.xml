@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="IncludeTitle">
+        <attr name="title" format="string"/>
+        <attr name="returnVisibility">
+            <enum name="visibility" value="1"/>
+            <enum name="gone" value="-1"/>
+        </attr>
+        <attr name="returnRes" format="reference"/>
+        <attr name="menuResVisibility">
+            <enum name="visibility" value="1"/>
+            <enum name="gone" value="-1"/>
+        </attr>
+        <attr name="menuRes" format="reference"/>
+        <attr name="menuTextVisibility">
+            <enum name="visibility" value="1"/>
+            <enum name="gone" value="-1"/>
+        </attr>
+        <attr name="menuText" format="string"/>
+    </declare-styleable>
+
+
+</resources>

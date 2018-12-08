@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_packing_picking"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <com.holderzone.android.holderpick.screen.widget.Title
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menuResVisibility="visibility"
+        app:menuTextVisibility="visibility"
+        app:returnVisibility="gone">
+
+    </com.holderzone.android.holderpick.screen.widget.Title>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_should_packing"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/tv_text_white"
+                android:gravity="center"
+                android:text="@string/no_packing"
+                android:textColor="@color/tv_sorting_title"
+                android:textSize="26sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/ll_view_packing"
+                android:layout_below="@+id/tv_should_packing"
+                android:background="@color/tv_text_white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.kennyc.view.MultiStateView
+                    android:id="@+id/msv_packing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:msv_emptyView="@layout/state_empty_packing"
+                    app:msv_errorView="@layout/state_error_view"
+                    app:msv_viewState="content">
+
+                    <include
+                        layout="@layout/include_no_packing_content"
+                        android:visibility="gone" />
+                </com.kennyc.view.MultiStateView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_view_packing"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_above="@+id/rl_print"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/ib_top"
+                    style="@style/PackingImageButton"
+                    android:layout_width="48dp"
+                    android:src="@drawable/selector_ib_up_most" />
+
+                <ImageButton
+                    android:id="@+id/ib_up"
+                    style="@style/PackingImageButton"
+                    android:layout_width="110dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/selector_ib_up" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/tv_packing_list_number"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_line"
+                        android:textColor="@color/tv_text_black"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/tv_text_black"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/ib_down"
+                    style="@style/PackingImageButton"
+                    android:layout_width="110dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/selector_ib_down" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_print"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btn_print_packCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@+id/btn_setting_print_number"
+                    android:background="@drawable/selector_btn_sorting"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/print_packing_code"
+                    android:textColor="@color/tv_text_white"
+                    android:textSize="22sp" />
+
+                <Button
+                    android:id="@+id/btn_setting_print_number"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:enabled="false"
+                    android:background="@drawable/selector_btn_print_number"
+                    android:gravity="center"
+                    android:textColor="@color/selector_print_number"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_should_sorting"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/tv_text_white"
+                android:gravity="center"
+                android:text="@string/should_picking"
+                android:textColor="@color/tv_sorting_title"
+                android:textSize="26sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/ll_complete"
+                android:layout_below="@+id/tv_should_sorting"
+                android:background="@color/tv_text_white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_scan_to_picking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/tv_text_white"
+                    android:gravity="center"
+                    android:text="@string/scan_to_picking"
+                    android:textColor="@color/tv_no_packing"
+                    android:textSize="22sp" />
+
+                <include
+                    layout="@layout/include_should_picking_content"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_complete"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btn_part_complete"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/selector_btn_print_number"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/part_complete"
+                    android:textColor="@color/selector_print_number"
+                    android:textSize="22sp" />
+
+                <Button
+                    android:id="@+id/btn_all_complete"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/selector_btn_sorting"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/all_complete"
+                    android:textColor="@color/tv_text_white"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

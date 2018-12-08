@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cl_dialog_root"
+    android:layout_width="338dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_ll_count"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_change_picking"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="22dp"
+        android:text="@string/change_picking_number"
+        android:textColor="@color/tv_text_table"
+        android:textSize="23sp" />
+
+    <include
+        layout="@layout/divider_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:id="@+id/tv_change_packing"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="22dp"
+        android:text="@string/change_packing_number"
+        android:textColor="@color/tv_text_table"
+        android:textSize="23sp" />
+
+</LinearLayout>

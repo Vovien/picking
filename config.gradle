@@ -1,0 +1,52 @@
+ext {
+    // sdk version
+    compile_sdk_version = 28
+    min_sdk_version = 19
+    target_sdk_version = 27
+
+    // sdk dependencies
+    room_version = '1.1.1'
+    gradle_version = '3.1.4'
+    multidex_version = '1.0.3'
+    support_library_version = '28.0.0'
+
+    //layout
+    constraint_layout_version = '1.1.3'
+    flexbox_version = '0.3.1'
+
+    // third lib dependencies
+    stetho_version = '1.5.0'
+    arouter_api_vesrion = '1.4.0'
+    dagger2_version = '2.17'
+    rx_java_version = '2.2.2'
+    rx_lifecycle_version = "2.2.0"
+    adapter_rxjava2_version = '2.3.0'
+    rx_relay_version = '2.1.0'
+    rx_android_version = '2.1.0'
+    rx_binding_version = '2.2.0'
+    rx_cache_version = '1.8.3-2.x'
+    converter_gson_version = '2.4.0'
+    google_gson_version = '2.8.5'
+    butter_knife_version = '8.8.1'
+    selectable_rounded_imageview_version = "1.0.1"
+    pull_load_more_recyclerview_version = "1.1.2"
+    zxing_version = "3.3.1"
+    greendao_version = "3.2.2"
+    glide_version = '4.7.1'
+    retrofit_version = '2.4.0'
+    okhttp_version = '3.11.0'
+    rxpermissions_version = "0.9.5@aar"
+    utilcode_version = "1.19.0"
+    logger_version = '2.2.0'
+    debug_db_version = "1.0.4"
+    multi_state_viewVersion = "1.3.2"
+    zloading_version = "1.0.8"
+    sticky_list_headers_version = "2.7.0"
+    grouped_recyclerview_adapter_version = "1.2.2"
+    versionchecklib_version = "2.1.1"
+    androidweakhandler_version = "1.1"
+    mqttv3_version = "1.1.0"
+    mqttv3_service_version = "1.1.1"
+    badge_view_version = '1.1.3'
+
+}

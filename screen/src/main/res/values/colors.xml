@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#0060AC</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="background">#F5F9FC</color>
+
+    <!--layout-->
+    <color name="select_picking">#1a0078d7</color>
+    <color name="layout_bg_common">#ffffff</color>
+
+    <!--button-->
+    <color name="btn_bg_blue_normal1">#197DFF</color>
+    <color name="btn_bg_blue_pressed1">#197DB6</color>
+    <color name="btn_bg_disable">#b2b6b8</color>
+    <color name="setting_print_number">#0078d7</color>
+    <color name="setting_print_number_default">#b2b2b2</color>
+    <color name="btn_bg_blue_pressed">#006ABE</color>
+    <color name="btn_bg_blue_default">#b2b2b2</color>
+    <color name="btn_print_number_default">#33b2b2b2</color>
+    <color name="btn_print_number_pressed">#abd1f0</color>
+    <color name="btn_print_number">#1f0078d7</color>
+    <color name="btn_check_version">#01b6ad</color>
+    <color name="btn_check_version_press">#01b6ad</color>
+
+    <!--textView-->
+    <color name="tv_text_white">#ffffff</color>
+    <color name="tv_text_black">#000000</color>
+    <color name="tv_text_dialog_bg">#80000000</color>
+    <color name="tv_sorting_title">#0078d7</color>
+    <color name="tv_no_packing">#cccccc</color>
+    <color name="tv_should_packing">#cc000000</color>
+    <color name="tv_should_packing_number">#f4a902</color>
+    <color name="tv_packing_list_number">#0078de</color>
+    <color name="tv_text_table">#b3000000</color>
+    <color name="tv_text_count">#197dff</color>
+    <color name="tv_text_pass">#f56766</color>
+    <color name="tv_text_setting">#676767</color>
+    <color name="tv_app_name">#1a7dff</color>
+
+    <!--stroke-->
+    <color name="rl_picking_number">#979797</color>
+    <color name="tv_setting">#33000000</color>
+
+    <!--dialog-->
+    <color name="dialog_bg_00">#00000000</color>
+
+    <!--divider-->
+    <color name="divider_solid_line">#e4e7e9</color>
+</resources>

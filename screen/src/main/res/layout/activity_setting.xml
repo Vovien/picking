@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <com.holderzone.android.holderpick.screen.widget.Title
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menuResVisibility="gone"
+        app:menuTextVisibility="gone"
+        app:returnVisibility="visibility">
+
+    </com.holderzone.android.holderpick.screen.widget.Title>
+
+    <LinearLayout
+        android:id="@+id/ll_setting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioGroup
+            android:id="@+id/radioGroup_setting"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioButton_update"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/selector_tv_setting"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/version_update"
+                android:textColor="@color/selector_setting_color"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_print"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_tv_setting"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/print_setting"
+                android:textColor="@color/selector_setting_color"
+                android:textSize="24sp" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/fl_setting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:background="@color/tv_text_white" />
+
+    </LinearLayout>
+</LinearLayout>

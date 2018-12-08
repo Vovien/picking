@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_item_packing"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="11dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:id="@+id/ll_packing_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/ll_packing_right">
+
+            <ImageView
+                android:id="@+id/iv_select"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingStart="15dp"
+                android:paddingEnd="18dp"
+                android:src="@mipmap/iv_select" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_packing_goods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goods"
+                    android:textColor="@color/tv_text_black"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/tv_packing_goods_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="100串/把"
+                    android:textColor="@color/tv_text_dialog_bg"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_packing_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_packing_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200"
+                android:textColor="@color/tv_sorting_title"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/tv_packing_count_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="单位：把"
+                android:textColor="@color/tv_text_dialog_bg"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include
+        layout="@layout/divider_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+</LinearLayout>

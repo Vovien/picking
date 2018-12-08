@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_packing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_all_select"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="15dp"
+                android:paddingEnd="18dp"
+                android:src="@mipmap/iv_select" />
+
+            <TextView
+                android:id="@+id/tv_goods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/goods"
+                android:textColor="@color/tv_text_dialog_bg"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_no_packing_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:text="@string/no_packing_number"
+            android:textColor="@color/tv_text_dialog_bg"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/divider_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_no_packing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

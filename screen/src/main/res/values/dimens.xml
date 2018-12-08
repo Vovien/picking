@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--dialog-->
+    <dimen name="dialog_progress_width">144dp</dimen>
+    <dimen name="dialog_progress_height">144dp</dimen>
+    <dimen name="dialog_count_width">338dp</dimen>
+    <dimen name="dialog_count_height">260dp</dimen>
+    <dimen name="dialog_change_count_height">136dp</dimen>
+</resources>

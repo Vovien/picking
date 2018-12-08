@@ -1,0 +1,41 @@
+<resources>
+    <!--dialog-->
+    <string name="dialog_fragment_loading">加载中</string>
+    <string name="dialog_change_success">修改成功</string>
+
+    <!--state_view-->
+    <string name="state_view_empty_name">暂无数据</string>
+    <string name="state_view_not_net_name">网络异常</string>
+    <string name="state_view_re_click">点击重试</string>
+
+    <!--home-->
+    <string name="scan_qr_code">请扫分拣单条形码/二维码分配门店到设备</string>
+
+    <!--packingSorting-->
+    <string name="no_packing">待装箱</string>
+    <string name="no_packing_goods">暂无待装箱物品</string>
+    <string name="scan_to_picking">请扫条形码/二维码开始分拣</string>
+    <string name="should_picking">应拣</string>
+    <string name="setting_print_number">设置打印数量\nx %1$s</string>
+    <string name="print_packing_code">打印装箱码</string>
+    <string name="part_complete">部分完成</string>
+    <string name="all_complete">全部完成</string>
+    <string name="number_line">/</string>
+    <string name="goods">物品</string>
+    <string name="no_packing_number">待装箱数量</string>
+    <string name="change_picking_number">修改实拣数</string>
+    <string name="change_packing_number">修改装箱数</string>
+    <string name="input_packing_number">输入实拣数</string>
+    <string name="sorting_count_unit">单位：%1$s</string>
+    <string name="packing_print_number">打印箱码数</string>
+
+    <!--setting-->
+    <string name="version_update">版本更新</string>
+    <string name="print_setting">打印机设置</string>
+    <string name="tv_app_name">拣货宝</string>
+    <string name="check_version">检测新版本</string>
+    <string name="current_version">当前版本：v1.0.0</string>
+    <string name="current_no_print">当前未设置打印机</string>
+    <string name="setting_print">设置打印机</string>
+
+</resources>
